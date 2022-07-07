@@ -80,6 +80,25 @@ export class UserSubscriptionsService {
       return false;
     }
 
+    this.findSubscriptionsByUser(userId1);
+
     return true;
+  }
+
+  async findSubscriptionsByUser(userId: number) {
+    const subscriptions = await this.repository.find({
+      where: {
+        subscriberId: userId,
+      },
+      select: {
+        subscribedToId: true,
+      },
+    });
+
+    const ids = subscriptions.map(
+      (subscription) => subscription.subscribedToId,
+    );
+
+    return ids;
   }
 }

@@ -7,6 +7,7 @@ import {
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getOrmConfig } from './modules/config/typeorm';
+import { PostsModule } from './modules/post/posts.module';
 import { AuthMiddleware } from './modules/user/middleware/auth.middleware';
 import { UsersModule } from './modules/user/users.module';
 
@@ -17,6 +18,7 @@ import { UsersModule } from './modules/user/users.module';
     }),
     TypeOrmModule.forRoot(getOrmConfig()),
     UsersModule,
+    PostsModule,
   ],
   controllers: [],
   providers: [],

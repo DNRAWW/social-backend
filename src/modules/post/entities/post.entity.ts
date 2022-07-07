@@ -29,7 +29,7 @@ export class PostEntity extends BaseEntity {
     type: 'timestamp',
     nullable: false,
   })
-  cretedAt: string;
+  createdAt: string;
 
   @Column({
     type: 'varchar',
